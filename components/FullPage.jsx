@@ -64,6 +64,9 @@ function App() {
 
   return (
     <>
+      <div className="LoganStoneLogo">
+        <img src="/LoganStoneLogo.svg" />
+      </div>
       <div ref={outerDivRef} className="outer">
         <Dots currentPage={currentPage} onPageChange={onPageChange} /> {/* onPageChange 전달 */}
         <Section1 />

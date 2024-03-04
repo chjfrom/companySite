@@ -4,11 +4,10 @@ const Dot = ({ num, currentPage, onClick }) => {
   return (
     <div
       style={{
-        width: 10,
-        height: 10,
-        border: '1px solid black',
+        width: currentPage === num ? 12 : 10,
+        height: currentPage === num ? 12 : 10,
         borderRadius: 999,
-        backgroundColor: currentPage === num ? 'black' : 'transparent',
+        backgroundColor: currentPage === num ? '#fff' : '#a0a0a0',
         cursor: 'pointer',
         transitionDuration: 1000,
         transition: 'background-color 0.5s',
@@ -21,7 +20,7 @@ const Dot = ({ num, currentPage, onClick }) => {
 const Dots = ({ currentPage, onPageChange }) => {
   // onPageChange 추가
   return (
-    <div style={{ position: 'fixed', top: '50%', right: 100 }}>
+    <div className="dotsBox" style={{ position: 'fixed', top: '50%', right: 100 }}>
       <div
         style={{
           display: 'flex',
