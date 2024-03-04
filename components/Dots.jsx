@@ -28,7 +28,7 @@ const Dots = ({ currentPage, onPageChange }) => {
           justifyContent: 'space-between',
           alignItems: 'center',
           width: 20,
-          height: 100,
+          height: 120,
         }}
       >
         <Dot num={1} currentPage={currentPage} onClick={onPageChange}></Dot> {/* onClick 추가 */}

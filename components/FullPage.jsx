@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import Dots from './Dots';
 import Menu from '@/components/Menu';
 import Section1 from './Section1';
+import Section2 from './Section2';
+import Section3 from './Section3';
 
 function App() {
   const DIVIDER_HEIGHT = 5;
@@ -70,11 +72,11 @@ function App() {
       <div ref={outerDivRef} className="outer">
         <Dots currentPage={currentPage} onPageChange={onPageChange} /> {/* onPageChange 전달 */}
         <Section1 />
-        <div className="inner bg-yellow">1</div>
-        <div className="inner bg-blue">2</div>
-        <div className="inner bg-pink">3</div>
-        <div className="inner bg-green">4</div>
-        <div className="inner bg-orange">5</div>
+        <Section2 />
+        <Section3 />
+        <div className="inner">3</div>
+        <div className="inner">4</div>
+        <div className="inner">5</div>
       </div>
       <Menu onPageChange={onPageChange} />
     </>
