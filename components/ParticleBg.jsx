@@ -94,7 +94,7 @@ export default function ParticleBg() {
                 value: 0.5,
               },
               shape: {
-                type: "image",
+                // type: "image",
                 // image: {
                 //   src: "https://www.pngall.com/wp-content/uploads/10/Binance-Coin-Crypto-Logo-PNG-Background.png",
                 // },

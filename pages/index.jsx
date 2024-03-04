@@ -58,10 +58,6 @@ export default function App() {
 
   return (
     <div className="App">
-      <Head>
-        <title>My styled page</title>
-        <link href="/static/styles.css" rel="stylesheet" />
-      </Head>
       <Menu />
       {/* <ParticleBg /> */}
       <ReactFullpage
