@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import KakaoMap from './KakaoMap';
 
 const Wrap = styled.div`
-  /* margin-top: 120px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,7 +14,6 @@ const Top = styled.div`
   box-sizing: border-box;
   width: 100%;
   font-size: 14px;
-  padding: 10px 20%;
   text-align: left;
 
   & > span {
@@ -25,7 +23,7 @@ const Top = styled.div`
   }
 `;
 
-const Middle = styled.div`
+const MapBox = styled.div`
   box-sizing: border-box;
   width: 100%;
   padding: 14px;
@@ -53,10 +51,10 @@ export default function Section5() {
         <span className="fointBlueText">로건스톤</span>
         <br />
         <span>찾아오시는길</span>
+        <MapBox>
+          <KakaoMap />
+        </MapBox>
       </Top>
-      <Middle>
-        <KakaoMap />
-      </Middle>
       <Bottom>
         <div>
           <h4>(주)로건스톤</h4>

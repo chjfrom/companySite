@@ -105,7 +105,7 @@ body {
       letter-spacing: -2%;
     }
 
-    >svg {
+    > svg {
       width: 60px;
       height: 60px;
     }
@@ -118,8 +118,6 @@ body {
     }
   }
 }
-
-
 
 .LoganStoneLogo {
   position: fixed;
@@ -214,7 +212,6 @@ body {
   color: #979797;
   font-weight: 700;
 
-
   margin: 20px 0px 0px 0px;
 }
 
@@ -233,7 +230,10 @@ body {
 }
 
 .pcWrap {
+  box-sizing: border-box;
   display: block;
+  max-width: 1024px;
+  margin: 0 auto;
   @media (max-width: 760px) {
     display: none;
   }
