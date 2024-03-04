@@ -20,7 +20,7 @@ const Dot = ({ num, currentPage, onClick }) => {
 const Dots = ({ currentPage, onPageChange }) => {
   // onPageChange 추가
   return (
-    <div className="dotsBox" style={{ position: 'fixed', top: '50%', right: 100 }}>
+    <div className="dotsBox" style={{ position: 'fixed', top: '50%', right: '5%', zIndex: 9999 }}>
       <div
         style={{
           display: 'flex',
