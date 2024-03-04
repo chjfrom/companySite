@@ -1,10 +1,10 @@
 body {
   font-family: arial;
+  height: 100vh;
 }
 .section {
   text-align: center;
   font-size: 4em;
-  color: #fff;
 }
 
 .actions {
