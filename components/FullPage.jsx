@@ -68,18 +68,23 @@ function FullPage() {
 
   return (
     <>
-      <div className="LoganStoneLogo">
-        <img src="/LoganStoneLogo.svg" />
+      <div className="pcWrap">
+        <div className="LoganStoneLogo">
+          <img src="/LoganStoneLogo.svg" />
+        </div>
+        <div ref={outerDivRef} className="outer">
+          <Dots currentPage={currentPage} onPageChange={onPageChange} /> {/* onPageChange 전달 */}
+          <Section1 />
+          <Section2 />
+          <Section3 />
+          <Section4 />
+          <Section5 />
+        </div>
+        <Menu currentPage={currentPage} onPageChange={onPageChange} />
       </div>
-      <div ref={outerDivRef} className="outer">
-        <Dots currentPage={currentPage} onPageChange={onPageChange} /> {/* onPageChange 전달 */}
-        <Section1 />
-        <Section2 />
-        <Section3 />
-        <Section4 />
-        <Section5 />
+      <div className="mobileWrap">
+        <img src="/companyMobile.png" />
       </div>
-      <Menu currentPage={currentPage} onPageChange={onPageChange} />
     </>
   );
 }
