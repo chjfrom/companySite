@@ -16,9 +16,11 @@
     "@fullpage/react-fullpage": "^0.1.42",
     "@tsparticles/engine": "^3.3.0",
     "@tsparticles/react": "^3.0.0",
+    "html-react-parser": "^5.1.8",
     "next": "^13.4",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-responsive": "^9.0.2",
     "tsparticles": "^3.3.0"
   }
 }

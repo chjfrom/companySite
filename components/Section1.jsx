@@ -1,9 +1,6 @@
-import ParticleBg from './ParticleBg';
-
 export default function Section1() {
   return (
     <div className="inner sectionBox">
-      <ParticleBg />
       <div className="section1 ection">
         <div className="section1Tex1">
           <p>

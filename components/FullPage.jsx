@@ -4,8 +4,10 @@ import Menu from '@/components/Menu';
 import Section1 from './Section1';
 import Section2 from './Section2';
 import Section3 from './Section3';
+import Section4 from './Section4';
+import Section5 from './Section5';
 
-function App() {
+function FullPage() {
   const DIVIDER_HEIGHT = 5;
   const outerDivRef = useRef();
   const [currentPage, setCurrentPage] = useState(1);
@@ -74,13 +76,12 @@ function App() {
         <Section1 />
         <Section2 />
         <Section3 />
-        <div className="inner">3</div>
-        <div className="inner">4</div>
-        <div className="inner">5</div>
+        <Section4 />
+        <Section5 />
       </div>
       <Menu currentPage={currentPage} onPageChange={onPageChange} />
     </>
   );
 }
 
-export default App;
+export default FullPage;

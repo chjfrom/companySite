@@ -3,6 +3,7 @@ import Particles from '@tsparticles/react';
 import { useParticles } from './ParticleProvider';
 import Elipse from '@/public/ellipse.svg';
 import styled from '@emotion/styled';
+import { useMediaQuery } from 'react-responsive';
 
 const ParticleBgBox = styled.div`
   position: absolute;
@@ -22,6 +23,7 @@ const Backdrop = styled.div`
 
 export default function ParticleBg() {
   const { init } = useParticles();
+  const isMobile = useMediaQuery({ query: '(max-width: 760px)' });
 
   const options = useMemo(
     () => ({
@@ -43,7 +45,7 @@ export default function ParticleBg() {
       particles: {
         move: {
           direction: 'outside',
-          enable: true,
+          enable: !isMobile,
           outModes: {
             default: 'bounce',
           },
@@ -69,11 +71,11 @@ export default function ParticleBg() {
           },
         },
         size: {
-          value: { min: 50, max: 150 },
+          value: isMobile ? { min: 25, max: 100 } : { min: 50, max: 150 },
         },
       },
     }),
-    [],
+    [isMobile],
   );
 
   return (
