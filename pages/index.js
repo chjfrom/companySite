@@ -1,0 +1,159 @@
+import React from "react";
+import ReactDOM from "react-dom";
+import ReactFullpage from "@fullpage/react-fullpage";
+import Head from "next/head";
+
+// NOTE: if using fullpage extensions/plugins put them here and pass it as props.
+const pluginWrapper = () => {
+  /*
+   * require('../static/fullpage.scrollHorizontally.min.js'); // Optional. Required when using the "scrollHorizontally" extension.
+   */
+};
+
+const originalColors = [
+  "blue",
+  "#0798ec",
+  "#fc6c7c",
+  "#435b71",
+  "orange",
+  "blue",
+  "purple",
+  "yellow",
+];
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sectionsColor: [...originalColors],
+      fullpages: [
+        {
+          text: "Section 1",
+        },
+        {
+          text: "Section 2",
+        },
+        {
+          text: "Section 3",
+        },
+        {
+          text: "Section 4",
+        },
+      ],
+    };
+  }
+
+  onLeave(origin, destination, direction) {
+    console.log("onLeave", { origin, destination, direction });
+    // arguments are mapped in order of fullpage.js callback arguments do something
+    // with the event
+  }
+
+  handleChangeColors() {
+    const newColors =
+      this.state.sectionsColor[0] === "yellow"
+        ? [...originalColors]
+        : ["yellow", "blue", "white"];
+    this.setState({
+      sectionsColor: newColors,
+    });
+  }
+
+  handleAddSection() {
+    this.setState((state) => {
+      const { fullpages } = state;
+      const { length } = fullpages;
+      fullpages.push({
+        text: `section ${length + 1}`,
+        id: Math.random(),
+      });
+
+      return {
+        fullpages: [...fullpages],
+      };
+    });
+  }
+
+  handleRemoveSection() {
+    this.setState((state) => {
+      const { fullpages } = state;
+      const newPages = [...fullpages];
+      newPages.pop();
+
+      return { fullpages: newPages };
+    });
+  }
+
+  moveSectionDown() {
+    fullpage_api.moveSectionDown();
+  }
+
+  moveSectionScroll(number) {
+    fullpage_api.moveTo(number);
+  }
+
+  render() {
+    const { fullpages } = this.state;
+
+    if (!fullpages.length) {
+      return null;
+    }
+
+    const Menu = () => (
+      <div
+        className="menu"
+        style={{
+          position: "fixed",
+          top: 0,
+          zIndex: 100,
+        }}
+      >
+        <ul className="actions">
+          <li>
+            <button onClick={() => this.moveSectionScroll(1)}> Section1</button>
+            <button onClick={() => this.moveSectionScroll(2)}> Section2</button>
+            <button onClick={() => this.moveSectionScroll(3)}> Section3</button>
+            <button onClick={() => this.moveSectionScroll(4)}> Section4</button>
+          </li>
+        </ul>
+      </div>
+    );
+
+    return (
+      <div className="App">
+        <Head>
+          <title>My styled page</title>
+          <link href="/static/styles.css" rel="stylesheet" />
+        </Head>
+        <Menu />
+        <ReactFullpage
+          navigation
+          pluginWrapper={pluginWrapper}
+          onLeave={this.onLeave.bind(this)}
+          // scrollHorizontally = {true}
+          sectionsColor={this.state.sectionsColor}
+          render={(comp) =>
+            console.log("render prop change") || (
+              <ReactFullpage.Wrapper>
+                <div className="section">
+                  <h1>section1</h1>
+                </div>
+                <div className="section">
+                  <h1>section2</h1>
+                </div>
+                <div className="section">
+                  <h1>section3</h1>
+                </div>
+                <div className="section">
+                  <h1>section4</h1>
+                </div>
+              </ReactFullpage.Wrapper>
+            )
+          }
+        />
+      </div>
+    );
+  }
+}
+
+export default App;
