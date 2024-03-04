@@ -35,6 +35,8 @@ const Dots = ({ currentPage, onPageChange }) => {
         <Dot num={1} currentPage={currentPage} onClick={onPageChange}></Dot> {/* onClick 추가 */}
         <Dot num={2} currentPage={currentPage} onClick={onPageChange}></Dot> {/* onClick 추가 */}
         <Dot num={3} currentPage={currentPage} onClick={onPageChange}></Dot> {/* onClick 추가 */}
+        <Dot num={4} currentPage={currentPage} onClick={onPageChange}></Dot> {/* onClick 추가 */}
+        <Dot num={5} currentPage={currentPage} onClick={onPageChange}></Dot> {/* onClick 추가 */}
       </div>
     </div>
   );
