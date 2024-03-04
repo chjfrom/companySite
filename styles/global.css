@@ -42,7 +42,8 @@ body {
   top: 30px;
   right: 30px;
   z-index: 100;
-  > ul {
+
+  >ul {
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -55,13 +56,23 @@ body {
   display: flex;
   align-items: center;
   column-gap: 20px;
-  > li {
+
+  >li {
+    color: #ffffff;
     line-height: 20px;
     font-size: 14px;
     cursor: pointer;
+    opacity: 0.4;
   }
-  > li:hover {
-    color: #2d7fd6;
+
+  .selected {
+    opacity: 1;
+
+    font-weight: bold;
+  }
+
+  >li:hover {
+    color: #ffffff;
     font-weight: bold;
   }
 }

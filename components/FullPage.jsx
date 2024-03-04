@@ -78,7 +78,7 @@ function App() {
         <div className="inner">4</div>
         <div className="inner">5</div>
       </div>
-      <Menu onPageChange={onPageChange} />
+      <Menu currentPage={currentPage} onPageChange={onPageChange} />
     </>
   );
 }
