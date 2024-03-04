@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Dots from './Dots';
 import Menu from '@/components/Menu';
+import Section1 from './Section1';
 
 function App() {
   const DIVIDER_HEIGHT = 5;
@@ -97,7 +98,7 @@ function App() {
     <>
       <div ref={outerDivRef} className="outer">
         <Dots currentPage={currentPage} onPageChange={onPageChange} /> {/* onPageChange 전달 */}
-        <div className="inner bg-yellow">1</div>
+        <Section1 />
         <div className="divider"></div>
         <div className="inner bg-blue">2</div>
         <div className="divider"></div>

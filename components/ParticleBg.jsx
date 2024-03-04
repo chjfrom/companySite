@@ -1,36 +1,39 @@
-import { useEffect, useMemo, useState } from 'react';
-import Particles, { initParticlesEngine } from '@tsparticles/react';
+import { useMemo } from 'react';
+import Particles from '@tsparticles/react';
 import { useParticles } from './ParticleProvider';
+import Elipse from '@/public/ellipse.svg';
+import styled from '@emotion/styled';
 
-export default function App() {
+const ParticleBgBox = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+`;
+
+const Backdrop = styled.div`
+  background-color: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  height: 100%;
+`;
+
+export default function ParticleBg() {
   const { init } = useParticles();
-  const particlesLoaded = (container) => {
-    console.log(container);
-  };
 
   const options = useMemo(
     () => ({
-      background: {
-        color: {
-          value: '#0d47a1',
-        },
-      },
       fpsLimit: 120,
       interactivity: {
         events: {
-          onClick: {
-            enable: true,
-            mode: 'push',
-          },
           onHover: {
             enable: true,
             mode: 'repulse',
           },
         },
         modes: {
-          push: {
-            quantity: 4,
-          },
           repulse: {
             distance: 200,
             duration: 0.4,
@@ -38,47 +41,45 @@ export default function App() {
         },
       },
       particles: {
-        color: {
-          value: '#ffffff',
-        },
-        links: {
-          color: '#ffffff',
-          distance: 150,
-          enable: true,
-          opacity: 0.5,
-          width: 1,
-        },
         move: {
-          direction: 'none',
+          direction: 'outside',
           enable: true,
           outModes: {
             default: 'bounce',
           },
           random: false,
           speed: 6,
-          straight: false,
+          straight: true,
         },
         number: {
-          density: {
-            enable: true,
-          },
-          value: 80,
+          value: 4,
+          limit: 4,
         },
         opacity: {
           value: 0.5,
         },
         shape: {
-          type: 'circle',
+          type: ['image'],
+          options: {
+            image: [
+              {
+                src: Elipse.src,
+              },
+            ],
+          },
         },
         size: {
-          value: { min: 1, max: 5 },
+          value: { min: 50, max: 150 },
         },
       },
-      detectRetina: true,
     }),
     [],
   );
 
-  if (!init) return <div id="tsparticles"></div>;
-  else return <Particles id="tsparticles" particlesLoaded={particlesLoaded} options={options} />;
+  return (
+    <ParticleBgBox>
+      {init && <Particles id="particleBg" options={options} />}
+      <Backdrop />
+    </ParticleBgBox>
+  );
 }

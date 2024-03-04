@@ -1,9 +1,8 @@
 import { initParticlesEngine } from '@tsparticles/react';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { loadSlim } from '@tsparticles/slim';
-// import { loadAll } from "@/tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
-// import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
-// import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
+import { loadBasic } from '@tsparticles/basic'; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
+import { loadImageShape } from '@tsparticles/shape-image';
 
 const ParticleContext = createContext({ init: false });
 
@@ -20,7 +19,7 @@ export default function ParticleProvider({ children }) {
       //await loadAll(engine);
       //await loadFull(engine);
       await loadSlim(engine);
-      //await loadBasic(engine);
+      await loadImageShape(engine);
     }).then(() => {
       setInit(true);
     });
