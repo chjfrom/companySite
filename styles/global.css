@@ -226,12 +226,6 @@ body {
 }
 
 .section2Tex1 {
-  opacity: 0;
-  transform: translate3d(0px, 50px, 0px);
-  animation: 0.5s ease-in-out 0s 1 normal forwards running animation-1x3fevv;
-  margin-bottom: 210px;
-  z-index: 1;
-
   box-sizing: border-box;
   width: 100%;
   text-align: left;
