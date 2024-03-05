@@ -2,12 +2,14 @@ import styled from '@emotion/styled';
 import KakaoMap from './KakaoMap';
 
 const Wrap = styled.div`
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-sizing: border-box;
+  padding: 0 28px;
+  gap: 28px;
 `;
 
 const Top = styled.div`
@@ -26,18 +28,17 @@ const Top = styled.div`
 const MapBox = styled.div`
   box-sizing: border-box;
   width: 100%;
-  padding: 14px;
 `;
 
 const Bottom = styled.footer`
   box-sizing: border-box;
   display: flex;
-  background-color: #070707;
   font-size: 14px;
   width: 100%;
-  padding: 7px 14px;
   justify-content: flex-start;
   text-align: left;
+  gap: 14px;
+  padding: 28px 0;
 
   > div {
     flex: 1;
@@ -51,10 +52,10 @@ export default function Section5() {
         <span className="fointBlueText">로건스톤</span>
         <br />
         <span>찾아오시는길</span>
-        <MapBox>
-          <KakaoMap />
-        </MapBox>
       </Top>
+      <MapBox>
+        <KakaoMap />
+      </MapBox>
       <Bottom>
         <div>
           <h4>(주)로건스톤</h4>
@@ -66,6 +67,7 @@ export default function Section5() {
         </div>
         <div>
           <h4>고객지원</h4>
+          <br />
           <ul>
             <ol>도움말 및 자료</ol>
             <ol>서비스 및 플랜</ol>
