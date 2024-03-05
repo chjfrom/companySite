@@ -1,7 +1,6 @@
 import { initParticlesEngine } from '@tsparticles/react';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { loadSlim } from '@tsparticles/slim';
-import { loadBasic } from '@tsparticles/basic'; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
 import { loadImageShape } from '@tsparticles/shape-image';
 
 const ParticleContext = createContext({ init: false });
