@@ -18,7 +18,8 @@ body::-webkit-scrollbar {
   /* height: 6px; */
   /* 스크롤바 뒷 배경 색상 */
   /* background: transparent;  */
-  display: none; //메인화면흔들리는것을 방지하기위해추가
+  /* 메인화면흔들리는것을 방지하기위해추가 */
+  display: none;
 }
 
 body::-webkit-scrollbar-thumb {
@@ -26,7 +27,8 @@ body::-webkit-scrollbar-thumb {
   /* background: rgb(94, 102, 115);  */
   /* 스크롤바 둥근 테두리 */
   /* border-radius: 3px; */
-  display: none; //메인화면흔들리는것을 방지하기위해추가
+  /* 메인화면흔들리는것을 방지하기위해추가 */
+  display: none;
 }
 
 .section {
