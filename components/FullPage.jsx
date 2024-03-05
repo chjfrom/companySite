@@ -8,6 +8,7 @@ import Section4 from './Section4';
 import Section5 from './Section5';
 import Mobile from './mobile/Mobile';
 import styled from '@emotion/styled';
+import { keyframes } from '@emotion/react';
 
 const Header = styled.header`
   display: flex;
@@ -21,6 +22,47 @@ const Header = styled.header`
   z-index: 1000;
   background-color: rgba(0, 0, 0, 0.5); /* 흰색 투명 배경 */
   backdrop-filter: blur(10px); /* 블러 효과 */
+`;
+
+const Container = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+
+  .bubbles {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+
+    span:nth-child(even) {
+      background: #0047ff;
+      box-shadow: 0 0 0 1px rgba(0, 17, 255, 0.253), 0 0 60px rgba(0, 17, 255, 0.253),
+        0 0 100px rgba(0, 17, 255, 0.253);
+    }
+
+    span {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.795);
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.363), 0 0 60px rgba(255, 255, 255, 0.219),
+        0 0 100px #fff;
+      animation: animate 500s linear infinite;
+      animation-duration: calc(1800s / var(--i));
+    }
+  }
+
+  @keyframes animate {
+    0% {
+      transform: translateY(100vh) scale(1);
+    }
+    100% {
+      transform: translateY(-100vh) scale(0);
+    }
+  }
 `;
 
 function FullPage() {
@@ -82,9 +124,18 @@ function FullPage() {
     setCurrentPage(pageNum);
   };
 
+  const spans = [];
+  for (let i = 0; i < 120; i++) {
+    const randomX = Math.floor(Math.random() * window.innerWidth);
+    const randomY = Math.floor(Math.random() * window.innerHeight);
+    spans.push(<span key={i} style={{ '--i': i, left: `${randomX}px`, top: `${randomY}px` }} />);
+  }
   return (
     <>
       <div className="pcWrap">
+        <Container>
+          <div className="bubbles">{spans}</div>s
+        </Container>
         <Header>
           <div className="LoganStoneLogo">
             <a href="">
