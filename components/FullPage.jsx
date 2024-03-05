@@ -124,12 +124,35 @@ function FullPage() {
     setCurrentPage(pageNum);
   };
 
+  const [windowSize, setWindowSize] = useState({
+    width: 0,
+    height: 0,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const spans = [];
   for (let i = 0; i < 120; i++) {
-    const randomX = Math.floor(Math.random() * window.innerWidth);
-    const randomY = Math.floor(Math.random() * window.innerHeight);
+    const randomX = Math.floor(Math.random() * windowSize.width);
+    const randomY = Math.floor(Math.random() * windowSize.height);
     spans.push(<span key={i} style={{ '--i': i, left: `${randomX}px`, top: `${randomY}px` }} />);
   }
+
   return (
     <>
       <div className="pcWrap">
