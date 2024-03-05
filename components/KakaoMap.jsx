@@ -14,6 +14,9 @@ const Wrap = styled.a`
   }
 `;
 
+const IMAGE_URL =
+  'http://t1.daumcdn.net/roughmap/imgmap/cec47a999dc21f22bf2dfd7886b7bf5b6039d903b3df2ae7d8d555e01f9c9d1e';
+
 export default function KakaoMap() {
   return (
     <Wrap
@@ -22,7 +25,7 @@ export default function KakaoMap() {
     >
       <Image
         alt="로건스톤 지도 이미지링크"
-        src="http://t1.daumcdn.net/roughmap/imgmap/f081893c2769b25def1d74c4c1646a0aef3f951508f7e670f410e56c0e364925"
+        src={IMAGE_URL}
         // width="638"
         // height="358"
         fill
