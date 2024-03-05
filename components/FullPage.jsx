@@ -7,6 +7,21 @@ import Section3 from './Section3';
 import Section4 from './Section4';
 import Section5 from './Section5';
 import Mobile from './mobile/Mobile';
+import styled from '@emotion/styled';
+
+const Header = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 40px;
+  box-sizing: border-box;
+
+  position: absolute;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5); /* 흰색 투명 배경 */
+  backdrop-filter: blur(10px); /* 블러 효과 */
+`;
 
 function FullPage() {
   const DIVIDER_HEIGHT = 5;
@@ -70,9 +85,13 @@ function FullPage() {
   return (
     <>
       <div className="pcWrap">
-        <div className="LoganStoneLogo">
-          <img src="/LoganStoneLogo.svg" />
-        </div>
+        <Header>
+          <div className="LoganStoneLogo">
+            <img src="/LoganStoneLogo.svg" />
+          </div>
+          <Menu currentPage={currentPage} onPageChange={onPageChange} />
+        </Header>
+
         <div ref={outerDivRef} className="outer">
           {/* <Dots currentPage={currentPage} onPageChange={onPageChange} /> */}
           <Section1 />
@@ -81,7 +100,6 @@ function FullPage() {
           <Section4 />
           <Section5 />
         </div>
-        <Menu currentPage={currentPage} onPageChange={onPageChange} />
       </div>
       <Mobile />
     </>
