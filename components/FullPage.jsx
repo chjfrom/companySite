@@ -6,6 +6,7 @@ import Section2 from './Section2';
 import Section3 from './Section3';
 import Section4 from './Section4';
 import Section5 from './Section5';
+import Mobile from './mobile/Mobile';
 
 function FullPage() {
   const DIVIDER_HEIGHT = 5;
@@ -82,9 +83,7 @@ function FullPage() {
         </div>
         <Menu currentPage={currentPage} onPageChange={onPageChange} />
       </div>
-      <div className="mobileWrap">
-        <img src="/companyMobile.png" />
-      </div>
+      <Mobile />
     </>
   );
 }

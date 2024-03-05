@@ -280,18 +280,3 @@ body {
     display: none;
   }
 }
-
-.mobileWrap {
-  display: none;
-  width: 100%;
-  box-sizing: border-box;
-
-  @media (max-width: 760px) {
-    display: block;
-  }
-
-  > img {
-    display: block;
-    width: 100%;
-  }
-}
