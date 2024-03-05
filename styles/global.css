@@ -13,6 +13,22 @@ body {
   line-height: 20px;
 }
 
+body::-webkit-scrollbar {
+  /* width: 5px; */
+  /* height: 6px; */
+  /* 스크롤바 뒷 배경 색상 */
+  /* background: transparent;  */
+  display: none; //메인화면흔들리는것을 방지하기위해추가
+}
+
+body::-webkit-scrollbar-thumb {
+  /* 스크롤바 색상 */
+  /* background: rgb(94, 102, 115);  */
+  /* 스크롤바 둥근 테두리 */
+  /* border-radius: 3px; */
+  display: none; //메인화면흔들리는것을 방지하기위해추가
+}
+
 .section {
   position: relative;
   text-align: center;
@@ -44,7 +60,7 @@ body {
 }
 
 .gnbMenu {
-  >ul {
+  > ul {
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -58,7 +74,7 @@ body {
   align-items: center;
   column-gap: 20px;
 
-  >li {
+  > li {
     color: #ffffff;
     line-height: 20px;
     font-size: 14px;
@@ -72,7 +88,7 @@ body {
     font-weight: bold;
   }
 
-  >li:hover {
+  > li:hover {
     color: #ffffff;
     font-weight: bold;
   }
@@ -135,7 +151,7 @@ body {
       letter-spacing: -2%;
     }
 
-    >svg {
+    > svg {
       width: 60px;
       height: 60px;
     }
@@ -152,7 +168,7 @@ body {
 .LoganStoneLogo {
   width: 120px;
 
-  >img {
+  > img {
     width: 100%;
   }
 }

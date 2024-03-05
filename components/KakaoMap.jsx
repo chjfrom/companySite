@@ -14,15 +14,15 @@ const Wrap = styled.a`
   }
 `;
 
+const LINK_URL =
+  'https://map.kakao.com/?urlX=483936&urlY=1118166&itemId=8050090&q=%EC%9C%A8%EC%B4%8C%EB%B9%8C%EB%94%A9&srcid=8050090&map_type=TYPE_MAP&from=roughmap';
+
 const IMAGE_URL =
   'http://t1.daumcdn.net/roughmap/imgmap/cec47a999dc21f22bf2dfd7886b7bf5b6039d903b3df2ae7d8d555e01f9c9d1e';
 
 export default function KakaoMap() {
   return (
-    <Wrap
-      href="https://map.kakao.com/?urlX=496725&amp;urlY=1129958&amp;itemId=13057692&amp;q=%EB%AF%B8%EB%9E%98%EC%97%90%EC%85%8B%EC%84%BC%ED%84%B0%EC%9B%90%EB%B9%8C%EB%94%A9&amp;srcid=13057692&amp;map_type=TYPE_MAP&amp;from=roughmap"
-      target="_blank"
-    >
+    <Wrap href={LINK_URL} target="_blank">
       <Image
         alt="로건스톤 지도 이미지링크"
         src={IMAGE_URL}
