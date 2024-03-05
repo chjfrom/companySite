@@ -8,6 +8,15 @@ const blinkAnimation = keyframes`
   100% { opacity: 1; }
 `;
 
+const blink = keyframes`
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+`;
+
 const StName = styled.div`
   font-size: 18px;
   font-weight: 700;
@@ -16,7 +25,7 @@ const StName = styled.div`
 
   .typing {
     color: #ffffff;
-    padding-left: 3px;
+    animation: ${blink} 1s step-end infinite;
   }
 `;
 
@@ -53,7 +62,7 @@ function Title() {
             setCurrentGreeting('');
           }, 3500);
         }
-      }, 150);
+      }, 200);
 
       return () => {
         clearInterval(typingInterval);

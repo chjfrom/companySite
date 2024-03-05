@@ -1,15 +1,103 @@
+import styled from '@emotion/styled';
+
+const Wrap = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  max-width: 1200px;
+  padding: 0px 6%;
+  margin: 0 auto;
+`;
+
+const SectionBox = styled.div`
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 20px;
+  @media (max-width: 1300px) {
+    font-size: 16px;
+  }
+  @media (max-width: 1100px) {
+    font-size: 13px;
+  }
+  @media (max-width: 1000px) {
+    font-size: 12px;
+  }
+`;
+
+const Title = styled.div`
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 46px;
+  color: #fff;
+  margin-bottom: 20px;
+  > span {
+    color: #0047ff;
+  }
+`;
+
+const ProductInfoBoxs = styled.div`
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+`;
+
+const ProductInfoBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 300px;
+  > svg {
+    width: 60px;
+    height: 60px;
+    @media (max-width: 1300px) {
+      width: 56px;
+      height: 56px;
+    }
+    @media (max-width: 1100px) {
+      width: 52px;
+      height: 52px;
+    }
+    @media (max-width: 1000px) {
+      width: 48px;
+      height: 48px;
+    }
+  }
+`;
+
+const SubTitle = styled.div`
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -2px;
+`;
+
+const Description = styled.div`
+  text-align: left;
+  font-size: 16px;
+  letter-spacing: -2px;
+  color: #979797;
+`;
+
 export default function Section3() {
   return (
-    <div className="inner sectionBox">
-      {/* <ParticleBg /> */}
-      <div className="section ">
-        <div className="section2Tex1">
+    <Wrap>
+      <SectionBox>
+        <Title>
           검증된 솔루션 <br />
-          <span className="fointBlueText">제품과 기술 소개</span>
-        </div>
-
-        <div className="productIntroductionWrap">
-          <div className="productIntroductionBox">
+          <span>제품과 기술 소개</span>
+        </Title>
+        <ProductInfoBoxs>
+          <ProductInfoBox>
             <svg
               width="87"
               height="71"
@@ -65,12 +153,12 @@ export default function Section3() {
                 </linearGradient>
               </defs>
             </svg>
-            <p className="title">시스템 트레이딩 차트</p>
-            <p className="description">
+            <SubTitle>시스템 트레이딩 차트</SubTitle>
+            <Description>
               금융 거래에 필요한 데이터 분석과 시각화를 제공하여 효율적인 거래 결정을 지원합니다.
-            </p>
-          </div>
-          <div className="productIntroductionBox">
+            </Description>
+          </ProductInfoBox>
+          <ProductInfoBox>
             <svg
               width="106"
               height="74"
@@ -121,13 +209,13 @@ export default function Section3() {
               </defs>
             </svg>
 
-            <p className="title">금융플랫폼</p>
-            <p className="description">
+            <SubTitle>금융플랫폼</SubTitle>
+            <Description>
               금융플랫폼은 여러분의 금융 생활을 혁신적으로 변화시킵니다. 투자, 결제, 대출 등의
               다양한 금융 서비스를 한 곳에서 간편하게 이용해 보세요.
-            </p>
-          </div>
-          <div className="productIntroductionBox">
+            </Description>
+          </ProductInfoBox>
+          <ProductInfoBox>
             <svg
               width="71"
               height="75"
@@ -151,13 +239,13 @@ export default function Section3() {
                 d="M24.3242 40.5404H34.4594"
                 stroke="url(#paint2_linear_2_463)"
                 stroke-width="5.06757"
-                strokeLinecap="round"
+                stroke-linecap="round"
               />
               <path
                 d="M44.5947 24.3242L34.4596 40.5404"
                 stroke="#0047FF"
                 stroke-width="5.06757"
-                strokeLinecap="round"
+                stroke-linecap="round"
               />
               <path
                 fill-rule="evenodd"
@@ -229,14 +317,14 @@ export default function Section3() {
                 </linearGradient>
               </defs>
             </svg>
-            <p className="title">실시간 데이터 처리</p>
-            <p className="description">
+            <SubTitle>실시간 데이터 처리</SubTitle>
+            <Description>
               실시간 데이터 처리 기술은 빠른 분석과 의사 결정을 지원하여 고객이 신속하고 효율적인
               전략을 수립할 수 있습니다.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+            </Description>
+          </ProductInfoBox>
+        </ProductInfoBoxs>
+      </SectionBox>
+    </Wrap>
   );
 }

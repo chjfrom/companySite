@@ -6,6 +6,14 @@ const SectionBox = styled.div`
   font-size: 18px;
   font-weight: bold;
   line-height: 1.4;
+  @media (max-width: 450px) {
+    font-size: 14px;
+    padding: 8px 30px 30px;
+  }
+  @media (max-width: 350px) {
+    font-size: 12px;
+    padding: 8px 24px 30px;
+  }
   h4 {
     color: #fff;
   }

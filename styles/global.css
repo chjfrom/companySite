@@ -167,8 +167,12 @@ body::-webkit-scrollbar-thumb {
 
 .LoganStoneLogo {
   width: 120px;
-
-  > img {
+  > a {
+    width: 100%;
+    display: block;
+    cursor: pointer;
+  }
+  img {
     width: 100%;
   }
 }

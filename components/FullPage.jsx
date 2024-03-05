@@ -87,7 +87,9 @@ function FullPage() {
       <div className="pcWrap">
         <Header>
           <div className="LoganStoneLogo">
-            <img src="/LoganStoneLogo.svg" />
+            <a href="">
+              <img src="/LoganStoneLogo.svg" />
+            </a>
           </div>
           <Menu currentPage={currentPage} onPageChange={onPageChange} />
         </Header>
