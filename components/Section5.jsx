@@ -3,13 +3,14 @@ import KakaoMap from './KakaoMap';
 
 const Wrap = styled.div`
   box-sizing: border-box;
+  height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
   padding: 0 28px;
-  gap: 28px;
+  margin-bottom: 20px;
 `;
 
 const Top = styled.div`
@@ -33,29 +34,40 @@ const MapBox = styled.div`
 const Bottom = styled.footer`
   box-sizing: border-box;
   display: flex;
-  font-size: 14px;
+  font-size: 12px;
   width: 100%;
   justify-content: flex-start;
   text-align: left;
-  gap: 14px;
-  padding: 28px 0;
+  gap: 10px;
+  padding: 20px 0;
+
+  color: #979797;
 
   > div {
     flex: 1;
   }
 `;
 
+const DirectionsBox = styled.div`
+  display: flex;
+
+  width: 100%;
+`;
+
 export default function Section5() {
   return (
     <Wrap className="inner sectionBox">
-      <Top>
-        <span className="fointBlueText">로건스톤</span>
-        <br />
-        <span>찾아오시는길</span>
-      </Top>
-      <MapBox>
-        <KakaoMap />
-      </MapBox>
+      <DirectionsBox>
+        <Top>
+          <span className="fointBlueText">로건스톤</span>
+          <br />
+          <span>찾아오시는길</span>
+        </Top>
+        <MapBox>
+          <KakaoMap />
+        </MapBox>
+      </DirectionsBox>
+
       <Bottom>
         <div>
           <h4>(주)로건스톤</h4>
