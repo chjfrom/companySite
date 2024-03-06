@@ -69,61 +69,6 @@ function FullPage() {
   const DIVIDER_HEIGHT = 5;
   const outerDivRef = useRef();
   const [currentPage, setCurrentPage] = useState(1);
-  const [isScrolling, setIsScrolling] = useState(false);
-
-  // useEffect(() => {
-  //   const wheelHandler = (e) => {
-  //     e.preventDefault();
-  //     if (!isScrolling) {
-  //       setIsScrolling(true);
-  //       const { deltaY } = e;
-  //       const { scrollTop } = outerDivRef.current;
-  //       const pageHeight = window.innerHeight;
-
-  //       if (deltaY > 0) {
-  //         if (currentPage < 5) {
-  //           // 새로운 페이지가 5개인 경우에만 추가 스크롤 가능
-  //           outerDivRef.current.scrollTo({
-  //             top: pageHeight * currentPage + DIVIDER_HEIGHT * currentPage,
-  //             left: 0,
-  //             behavior: 'smooth',
-  //           });
-  //           setCurrentPage(currentPage + 1);
-  //         }
-  //       } else {
-  //         if (currentPage > 1) {
-  //           outerDivRef.current.scrollTo({
-  //             top: pageHeight * (currentPage - 2) + DIVIDER_HEIGHT * (currentPage - 2),
-  //             left: 0,
-  //             behavior: 'smooth',
-  //           });
-  //           setCurrentPage(currentPage - 1);
-  //         }
-  //       }
-
-  //       setTimeout(() => {
-  //         setIsScrolling(false);
-  //       }, 1000);
-  //     }
-  //   };
-
-  //   const outerDivRefCurrent = outerDivRef.current;
-  //   outerDivRefCurrent.addEventListener('wheel', wheelHandler, { passive: false });
-  //   return () => {
-  //     outerDivRefCurrent.removeEventListener('wheel', wheelHandler);
-  //   };
-  // }, [isScrolling, currentPage]);
-
-  const onPageChange = (pageNum) => {
-    const pageHeight = window.innerHeight;
-    outerDivRef.current.scrollTo({
-      top: pageHeight * (pageNum - 1) + DIVIDER_HEIGHT * (pageNum - 1),
-      left: 0,
-      behavior: 'smooth',
-    });
-    setCurrentPage(pageNum);
-  };
-
   const [windowSize, setWindowSize] = useState({
     width: 0,
     height: 0,
@@ -146,6 +91,37 @@ function FullPage() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const { scrollTop } = outerDivRef.current;
+      const pageHeight = window.innerHeight;
+      let newPage = Math.ceil(scrollTop / pageHeight);
+
+      // 스크롤 위치가 최상단에 위치할 때는 페이지를 1로 설정
+      if (scrollTop === 0) {
+        newPage = 1;
+      }
+
+      setCurrentPage(newPage);
+    };
+
+    const outerDivRefCurrent = outerDivRef.current;
+    outerDivRefCurrent.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      outerDivRefCurrent.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const onPageChange = (pageNum) => {
+    const pageHeight = window.innerHeight;
+    // 스크롤 애니메이션을 비활성화하여 페이지 변경
+    outerDivRef.current.scrollTo({
+      top: pageHeight * (pageNum - 1) + DIVIDER_HEIGHT * (pageNum - 1),
+      left: 0,
+      behavior: 'auto', // 스크롤 애니메이션을 비활성화합니다.
+    });
+  };
+
   const spans = [];
   for (let i = 0; i < 120; i++) {
     const randomX = Math.floor(Math.random() * windowSize.width);
@@ -157,19 +133,19 @@ function FullPage() {
     <>
       <div className="pcWrap">
         <Container>
-          <div className="bubbles">{spans}</div>s
+          <div className="bubbles">{spans}</div>
         </Container>
         <Header>
           <div className="LoganStoneLogo">
             <a href="">
-              <img src="/LoganStoneLogo.svg" />
+              <img src="/LoganStoneLogo.svg" alt="Logo" />
             </a>
           </div>
           <Menu currentPage={currentPage} onPageChange={onPageChange} />
         </Header>
 
         <div ref={outerDivRef} className="outer">
-          {/* <Dots currentPage={currentPage} onPageChange={onPageChange} /> */}
+          {/* Content Sections */}
           <Section1 />
           <Section2 />
           <Section3 />

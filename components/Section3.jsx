@@ -239,13 +239,13 @@ export default function Section3() {
                 d="M24.3242 40.5404H34.4594"
                 stroke="url(#paint2_linear_2_463)"
                 stroke-width="5.06757"
-                stroke-linecap="round"
+                strokeLinecap="round"
               />
               <path
                 d="M44.5947 24.3242L34.4596 40.5404"
                 stroke="#0047FF"
                 stroke-width="5.06757"
-                stroke-linecap="round"
+                strokeLinecap="round"
               />
               <path
                 fill-rule="evenodd"
